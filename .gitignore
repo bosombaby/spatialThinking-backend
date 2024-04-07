@@ -1,0 +1,12 @@
+*.pyc           # Python 编译文件
+__pycache__/    # Python 缓存目录
+*.pyo           # 优化后的 Python 编译文件
+*.egg-info/     # Python 包的元数据目录
+dist/           # Python 打包文件目录
+build/          # Python 构建目录
+*.egg           # Python 安装包
+settings_local.py   # 本地设置文件，包含敏感信息
+*.log           # 日志文件
+media/          # 用户上传的媒体文件
+staticfiles/    # 收集的静态文件目录
+spatialVenv/ # 虚拟环境
