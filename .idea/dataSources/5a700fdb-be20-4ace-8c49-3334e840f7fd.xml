@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.45">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+      <ServerVersion>8.0.30</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="3d_resources"/>
+    <schema id="3" parent="1" name="book"/>
+    <schema id="4" parent="1" name="django_model"/>
+    <schema id="5" parent="1" name="djangoblog"/>
+    <schema id="6" parent="1" name="fruitday"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="questionnaire"/>
+    <schema id="11" parent="1" name="resource_library"/>
+    <schema id="12" parent="1" name="spatial_data">
+      <Current>1</Current>
+    </schema>
+    <schema id="13" parent="1" name="sys"/>
+    <schema id="14" parent="1" name="wj"/>
+    <schema id="15" parent="1" name="yuindex"/>
+  </database-model>
+</dataSource>
