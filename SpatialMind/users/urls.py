@@ -7,4 +7,5 @@ urlpatterns = [
     path('hello/', views.hello, name='hello'),
     path('register/', views.register, name='register'),
     path('login/', views.login, name='login'),
+    path('get-async-routes', views.getAsyncRoutes, name='getAsyncRoutes'),
 ]

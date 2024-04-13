@@ -1,13 +1,17 @@
 import json
+import this
 
 from django.http import HttpResponse, JsonResponse
 
 
 class MyAPIResponse:
-    def __init__(self, status=200, msg='success', data=[]):
+    def __init__(self, status=200, msg='success', data=None, success=True):
+        if data is None:
+            data = []
         self.status = status
         self.msg = msg
         self.data = data
+        self.success = success
 
     # 后续可以扩展封装，目前架子是这样
     def to_json(self):
@@ -15,10 +19,14 @@ class MyAPIResponse:
         data = json.dumps({
             'status': self.status,
             'msg': self.msg,
-            'data': self.data
+            'data': self.data,
+            'success': self.success
         }, ensure_ascii=False, indent=4)
 
         response = HttpResponse(data)
+        response['Access-Control-Allow-Headers'] = '*'
+        response['Access-Control-Allow-Origin'] = '*'
+        print('response', response)
         return response
 
 
