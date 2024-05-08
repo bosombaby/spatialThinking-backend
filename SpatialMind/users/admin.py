@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import CustomUser
+from .models import Profile
 
-# 注册用户表
-admin.site.register(CustomUser)
+# Register your models here.
+admin.site.register(Profile)
 

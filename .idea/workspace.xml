@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0caecea2-eb37-4786-a447-028155eb915f" name="变更" comment="feat: 封装响应接口">
+    <list default="true" id="0caecea2-eb37-4786-a447-028155eb915f" name="变更" comment="feat: 预检请求">
+      <change afterPath="$PROJECT_DIR$/SpatialMind/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpatialMind/docs/常用 cmd 命令.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SpatialMind/docs/常见错误码.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpatialMind/APIHandler/MyHttpResponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/APIHandler/MyHttpResponse.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpatialMind/SpatialMind/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/SpatialMind/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpatialMind/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/SpatialMind/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/SpatialMind/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpatialMind/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpatialMind/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +47,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/毕业设计/project/spatialThinking-backend/SpatialMind/SpatialMind",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/毕业设计/project/spatialThinking-backend/SpatialMind/SpatialMind&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\毕业设计\project\spatialThinking-backend\SpatialMind\users\utils" />
+      <recent name="E:\毕业设计\project\spatialThinking-backend\SpatialMind\users" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="空间思维" type="Python.DjangoServer" factoryName="Django server">
       <module name="spatialThinking-backend" />
@@ -122,7 +134,9 @@
       <workItem from="1712502433687" duration="429000" />
       <workItem from="1712502881694" duration="1867000" />
       <workItem from="1712584275084" duration="6437000" />
-      <workItem from="1713001427552" duration="11459000" />
+      <workItem from="1713001427552" duration="29655000" />
+      <workItem from="1714735824787" duration="2930000" />
+      <workItem from="1714910331694" duration="2646000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1712502487269</created>
@@ -138,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713017314660</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: 预检请求">
+      <created>1713022282636</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713022282636</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,22 +168,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="feat: 封装响应接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 封装响应接口" />
+    <MESSAGE value="feat: 预检请求" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 预检请求" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SpatialMind/users/views.py</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SpatialMind/users/views.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

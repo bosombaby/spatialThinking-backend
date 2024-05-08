@@ -1,7 +1,13 @@
 import json
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from APIHandler.MyHttpResponse import MyAPIResponse
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 
 
 def hello(request):
@@ -9,23 +15,42 @@ def hello(request):
 
 
 # 用户注册需求
+@api_view(['POST'])
 def register(request):
-    return HttpResponse("你好，这里是用户注册接口")
+    data = json.loads(request.body)
+    username = data.get('username')
+    password = data.get('password')
+
+    user = User.objects.filter(username=username)
+    if user is not None:
+        user = User.objects.create_user(username, '', password)
+        user.save()
+        return MyAPIResponse(200, '注册成功', [], True).to_json()
+    else:
+        return MyAPIResponse(404, '用户名已存在', [], False).to_json()
 
 
 # 用户登录需求
+@api_view(['POST'])
+@permission_classes([AllowAny])
 def login(request):
-    print(request)
-    if request.method == "POST":
-        data = json.loads(request.body)
-        username = data.get('username')
-        password = data.get('password')
-        user = authenticate(request, username=username, password=password)
-        print("Welcome", user)
-        if user is not None:
-            return MyAPIResponse(200, '登录成功', [], True).to_json()
-        else:
-            return MyAPIResponse(404, '账号或密码错误', [], False).to_json()
+    data = json.loads(request.body)
+    username = data.get('username')
+    password = data.get('password')
+    user = authenticate(request, username=username, password=password)
+    print("Welcome", user)
+    if user is not None:
+        refresh = RefreshToken.for_user(user)
+        return MyAPIResponse(200, '登录成功', {
+            "username": "admin",
+            "roles": ["admin"],
+            "accessToken": str(refresh.access_token),
+            "refreshToken": str(refresh),
+            "expires": "2030/10/30 00:00:00"
+        }, True).to_json()
+    else:
+        return MyAPIResponse(404, '账号或密码错误', [], False).to_json()
+
 
 routes = {
     "path": "/permission",
@@ -58,5 +83,8 @@ routes = {
         }
     ]
 }
+
+
+@api_view(['GET'])
 def getAsyncRoutes(request):
     return MyAPIResponse(200, '登录成功', [routes], True).to_json()
