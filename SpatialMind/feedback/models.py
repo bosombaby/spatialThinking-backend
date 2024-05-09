@@ -10,8 +10,10 @@ class Scoring(models.Model):
         verbose_name_plural = "评分标准 Scoring"
 
     scoring_id = models.AutoField(primary_key=True, verbose_name="评分ID")
-    level = models.CharField(max_length=50, default="A", verbose_name="等级")
-    description = models.TextField(default="", verbose_name="描述")
+    level = models.CharField(max_length=50, verbose_name="等级")
+    score_range = models.CharField(max_length=50,default="90-100",  verbose_name="分数区间")
+    description = models.CharField(max_length=128, verbose_name="描述")
+    details = models.TextField(default="", null=True, blank=True, verbose_name="详情")
 
     def __str__(self):
         return self.level

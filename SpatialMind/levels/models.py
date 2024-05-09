@@ -9,7 +9,7 @@ class Subject(models.Model):
 
     subject_id = models.AutoField(primary_key=True, verbose_name='学科 ID')
     subject_name = models.CharField(max_length=100, default="未命名学科", verbose_name="学科名")
-    learning_modules = models.TextField(default="", verbose_name="学习模块")
+    learning_modules = models.TextField(default="", null=True, verbose_name="学习模块")
 
     def __str__(self):
         return self.subject_name
@@ -23,8 +23,10 @@ class Badge(models.Model):
 
     badge_id = models.AutoField(primary_key=True, verbose_name="勋章ID")
     name = models.CharField(max_length=100, default="未命名勋章", verbose_name="名称")
-    description = models.TextField(default="", verbose_name="描述")
-    content = models.TextField(default="", verbose_name="内容")
+    online_link = models.URLField(null=True, blank=True, verbose_name="线上链接")
+    local_link = models.FileField(null=True, blank=True, upload_to='badges/', verbose_name="本地链接")
+    description = models.TextField(default="", null=True, blank=True, verbose_name="描述")
+    content = models.TextField(default="", null=True, blank=True, verbose_name="内容")
     acquired_count = models.IntegerField(default=0, verbose_name="获得人数")
 
     def __str__(self):
@@ -47,7 +49,7 @@ class Level(models.Model):
                               verbose_name="勋章")
 
     def __str__(self):
-        return self.level_name
+        return f"{self.subject} -- {self.level_name}"
 
 
 # 题目表，与关卡表进行多对一关联
@@ -58,8 +60,14 @@ class Question(models.Model):
 
     question_id = models.AutoField(primary_key=True, verbose_name="题目ID")
     level = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="关卡")
-    content = models.TextField(default="", verbose_name="题目内容")
-    answer = models.TextField(default="", verbose_name="答案")
+    content = models.TextField(verbose_name="题目内容")
+    # 添加选项字段，这里以四个选项为例
+    option_a = models.CharField(max_length=200, default='', verbose_name="选项A")
+    option_b = models.CharField(max_length=200, default='', verbose_name="选项B")
+    option_c = models.CharField(max_length=200, null=True, blank=True, verbose_name="选项C")
+    option_d = models.CharField(max_length=200, null=True, blank=True, verbose_name="选项D")
+    answer = models.CharField(max_length=64, verbose_name="答案")
+    solution = models.TextField(default='', verbose_name="解题思路")
 
     def __str__(self):
         return self.content
