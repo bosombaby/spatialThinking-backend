@@ -1,4 +1,6 @@
 import json
+from datetime import date
+from .models import Profile
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -42,7 +44,8 @@ def login(request):
     if user is not None:
         refresh = RefreshToken.for_user(user)
         return MyAPIResponse(200, '登录成功', {
-            "username": "admin",
+            "id": user.id,
+            "username": user.username,
             "roles": ["admin"],
             "accessToken": str(refresh.access_token),
             "refreshToken": str(refresh),
@@ -50,6 +53,28 @@ def login(request):
         }, True).to_json()
     else:
         return MyAPIResponse(404, '账号或密码错误', [], False).to_json()
+
+
+# 获取用户信息
+@api_view(['POST'])
+def getUserInfo(request):
+    data = json.loads(request.body)
+    user_id = data.get('userId')
+    user = User.objects.get(pk=user_id)
+    if user is not None:
+        return MyAPIResponse(200, '查询成功', {
+            "id": user.id,
+            "username": user.username,
+            "first_name": user.first_name,
+            "last_name": user.last_name,
+            "email": user.email,
+            "last_login": user.last_login.strftime('%Y-%m-%d %H:%M:%S'),
+            "nickname": user.profile.nickname,
+
+            "roles": ["admin"]
+        }, True).to_json()
+    else:
+        return MyAPIResponse(404, '未查询到用户', [], False).to_json()
 
 
 routes = {

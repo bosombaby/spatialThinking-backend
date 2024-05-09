@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
 from pathlib import Path
 from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -39,6 +38,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'levels',
+    'feedback',
 ]
 
 MIDDLEWARE = [
@@ -194,3 +195,4 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_LIFETIME": timedelta(days=5),  # 只要滑动令牌的到期声明中的时间戳未通过，就可以用来证明身份验证
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),  # path("token|refresh", TokenObtainSlidingView.as_view())
 }
+

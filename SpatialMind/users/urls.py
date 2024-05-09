@@ -8,4 +8,5 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('login', views.login, name='login'),
     path('get-async-routes', views.getAsyncRoutes, name='getAsyncRoutes'),
+    path('info',views.getUserInfo,name='info'),
 ]
