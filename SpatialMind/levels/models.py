@@ -59,7 +59,7 @@ class Question(models.Model):
         verbose_name_plural = "题目信息 Question"
 
     question_id = models.AutoField(primary_key=True, verbose_name="题目ID")
-    level = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="关卡")
+    level = models.ForeignKey(Level, on_delete=models.CASCADE,related_name='question', verbose_name="关卡")
     content = models.TextField(verbose_name="题目内容")
     # 添加选项字段，这里以四个选项为例
     option_a = models.CharField(max_length=200, default='', verbose_name="选项A")
