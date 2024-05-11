@@ -1,6 +1,6 @@
 import json
 from datetime import date
-from .models import Profile
+from .models import Profile,Role
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
@@ -62,6 +62,8 @@ def getUserInfo(request):
     user_id = data.get('userId')
     user = User.objects.get(pk=user_id)
     if user is not None:
+        profile = list(user.profile.all().values('role_id', 'nickname', 'membership_level', 'gold_count', 'avatar'))[0]
+        role = Role.objects.get(role_id=profile['role_id'])
         return MyAPIResponse(200, '查询成功', {
             "id": user.id,
             "username": user.username,
@@ -69,9 +71,8 @@ def getUserInfo(request):
             "last_name": user.last_name,
             "email": user.email,
             "last_login": user.last_login.strftime('%Y-%m-%d %H:%M:%S'),
-            "nickname": user.profile.nickname,
-
-            "roles": ["admin"]
+            "profile": profile,
+            "roles": [role.name]
         }, True).to_json()
     else:
         return MyAPIResponse(404, '未查询到用户', [], False).to_json()
@@ -112,4 +113,4 @@ routes = {
 
 @api_view(['GET'])
 def getAsyncRoutes(request):
-    return MyAPIResponse(200, '登录成功', [routes], True).to_json()
+    return MyAPIResponse(200, '查询成功', [routes], True).to_json()

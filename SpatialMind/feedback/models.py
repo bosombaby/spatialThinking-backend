@@ -11,7 +11,7 @@ class Scoring(models.Model):
 
     scoring_id = models.AutoField(primary_key=True, verbose_name="评分ID")
     level = models.CharField(max_length=50, verbose_name="等级")
-    score_range = models.CharField(max_length=50,default="90-100",  verbose_name="分数区间")
+    score_range = models.CharField(max_length=50, default="90-100", verbose_name="分数区间")
     description = models.CharField(max_length=128, verbose_name="描述")
     details = models.TextField(default="", null=True, blank=True, verbose_name="详情")
 
@@ -28,11 +28,12 @@ class ChallengeRecord(models.Model):
     record_id = models.AutoField(primary_key=True, verbose_name="闯关记录ID")
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="用户")
     level = models.ForeignKey(Level, on_delete=models.CASCADE, verbose_name="关卡")
+    scoring = models.ForeignKey(Scoring, default=1, on_delete=models.CASCADE, verbose_name="评分标准")
     start_time = models.DateTimeField(auto_now_add=True, verbose_name="开始时间")
     end_time = models.DateTimeField(auto_now=True, verbose_name="结束时间")
     result = models.CharField(max_length=50, default="未完成", verbose_name="闯关结果")
+    answer = models.CharField(max_length=128, default="", verbose_name="用户答案")
     score = models.IntegerField(default=0, verbose_name="得分")
-    scoring_standard = models.ManyToManyField(Scoring, verbose_name="评分标准")
 
     def __str__(self):
         return f"{self.user.username} 的 {self.level.level_name} 闯关记录"

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0caecea2-eb37-4786-a447-028155eb915f" name="变更" comment="feat: 题目列表">
+    <list default="true" id="0caecea2-eb37-4786-a447-028155eb915f" name="变更" comment="feat: 题目接口">
+      <change afterPath="$PROJECT_DIR$/SpatialMind/feedback/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpatialMind/levels/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/levels/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/SpatialMind/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/SpatialMind/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/feedback/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/feedback/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/feedback/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/feedback/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpatialMind/levels/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/levels/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpatialMind/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpatialMind/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +146,8 @@
       <workItem from="1713001427552" duration="29655000" />
       <workItem from="1714735824787" duration="2930000" />
       <workItem from="1714910331694" duration="18915000" />
-      <workItem from="1715241663784" duration="12695000" />
+      <workItem from="1715241663784" duration="16353000" />
+      <workItem from="1715330108923" duration="11057000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1712502487269</created>
@@ -185,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715257411217</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: 题目接口">
+      <created>1715312757132</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715312757132</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,15 +211,21 @@
     <MESSAGE value="feat: token 鉴权" />
     <MESSAGE value="feat: 闯关模块" />
     <MESSAGE value="feat: 题目列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 题目列表" />
+    <MESSAGE value="feat: 题目接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 题目接口" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/SpatialMind/levels/views.py</url>
-          <line>38</line>
-          <option name="timeStamp" value="35" />
+          <url>file://$PROJECT_DIR$/SpatialMind/users/views.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SpatialMind/users/views.py</url>
+          <line>66</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -221,6 +240,8 @@
       <configuration name="Python.DjangoServer">
         <watch expression="profile._iterable_class" />
         <watch expression="question" language="Python" />
+        <watch expression="user.profile._queryset_class" />
+        <watch expression="user.profile._constructor_args" />
       </configuration>
     </watches-manager>
   </component>

@@ -9,6 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('levels/', include('levels.urls')),
+    path('feedback/', include('feedback.urls')),
 
     # api token operate
     path('api/token', TokenObtainPairView.as_view(), name='token_obtain_pair'),

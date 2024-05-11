@@ -22,7 +22,7 @@ class Profile(models.Model):
         verbose_name = "用户信息"
         verbose_name_plural = "用户信息 Profile"
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='用户')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='profile', verbose_name='用户')
     nickname = models.CharField(max_length=100, default='默认用户', verbose_name='昵称')
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True, verbose_name="头像")
     membership_level = models.CharField(max_length=50, default="普通", verbose_name="会员等级")
